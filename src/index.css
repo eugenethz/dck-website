@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 50% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 210 100% 25%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 199 70% 72%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    scroll-behavior: smooth;
+  }
+  html, body {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: static;
+  }
+  body {
+    @apply bg-background text-base text-foreground font-sans;
+    font-family: 'DIN', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6, p, ul, ol, li, a, span, label, th, td, blockquote, button, input, textarea {
+    @apply text-base;
+    font-family: 'DIN', sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+  section {
+    @apply py-6 md:py-10;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-blue hover:bg-brand-dark text-white font-medium py-3 px-6 rounded-md transition-all duration-300 transform hover:scale-105 hover:shadow-md text-base;
+    font-family: 'DIN', sans-serif;
+  }
+  .section-container {
+    @apply container mx-auto px-4 md:px-8;
+  }
+  .section-title {
+    @apply text-base font-semibold mb-4 md:mb-8;
+    font-family: 'DIN', sans-serif;
+  }
+  .section-subtitle {
+    @apply text-base text-gray-600 max-w-3xl mx-auto mb-12;
+    font-family: 'DIN', sans-serif;
+  }
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px] text-base;
+    font-family: 'DIN', sans-serif;
+  }
+  .image-circle {
+    @apply rounded-full overflow-hidden bg-gray-100;
+  }
+}
+
+/* Interactive elements animations */
+@layer utilities {
+  /* Link hover animations */
+  .animate-link {
+    @apply relative transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:w-0 before:h-0.5 before:bg-brand-blue before:transition-all before:duration-300 hover:before:w-full;
+  }
+  
+  /* Button hover animations */
+  .animate-button {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-md active:scale-95;
+  }
+  
+  /* Card hover animations */
+  .animate-card {
+    @apply transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px];
+  }
+  
+  /* Service item hover animations */
+  .animate-service {
+    @apply transition-all duration-300 hover:bg-brand-light hover:scale-[1.02];
+  }
+  
+  /* Navigation link animations */
+  .nav-link {
+    @apply relative transition-all duration-300 hover:text-white overflow-hidden before:absolute before:bottom-0 before:left-0 before:w-0 before:h-0.5 before:bg-white before:transition-all before:duration-300 hover:before:w-full;
+  }
+  
+  /* Form elements hover animations */
+  .animate-form-element {
+    @apply transition-all duration-300 focus:shadow-md focus:border-brand-blue focus:ring-1 focus:ring-brand-blue;
+  }
+  
+  /* Icon hover animations */
+  .animate-icon {
+    @apply transition-all duration-300 hover:scale-125 hover:text-brand-blue;
+  }
+  
+  /* Testimonial card hover animation */
+  .animate-testimonial {
+    @apply transition-all duration-300 hover:shadow-xl hover:bg-gray-50;
+  }
+  
+  /* FAQ item hover animation */
+  .animate-faq {
+    @apply transition-all duration-300 hover:bg-gray-50;
+  }
+  
+  /* Subtle bounce animation for arrows */
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s infinite;
+  }
+  
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: translateY(-10%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+}
+
+@font-face {
+  font-family: 'DIN';
+  src: url('/fonts/din-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DIN';
+  src: url('/fonts/din-bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+.site-zoom-wrapper {
+  zoom: 0.85;
+}
+
